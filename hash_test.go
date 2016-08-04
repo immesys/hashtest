@@ -14,6 +14,8 @@ import (
 	zhangMurmur "github.com/zhangxinngang/murmur"
 )
 
+var result interface{}
+
 func mkinput(n int) [][]byte {
 	rv := make([][]byte, n)
 	for i := 0; i < n; i++ {
@@ -28,6 +30,7 @@ func BenchmarkFarmHashHash32(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		output[n] = farmhash.Hash32(input[n])
 	}
+	result = output
 }
 func BenchmarkFarmHashHash64(b *testing.B) {
 	input := mkinput(b.N)
@@ -36,6 +39,7 @@ func BenchmarkFarmHashHash64(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		output[n] = farmhash.Hash64(input[n])
 	}
+	result = output
 }
 func BenchmarkHuichenMurmur(b *testing.B) {
 	input := mkinput(b.N)
@@ -44,6 +48,7 @@ func BenchmarkHuichenMurmur(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		output[n] = huichenMurmur.Murmur3(input[n])
 	}
+	result = output
 }
 func BenchmarkReuseeMurmur(b *testing.B) {
 	input := mkinput(b.N)
@@ -52,6 +57,7 @@ func BenchmarkReuseeMurmur(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		output[n] = reuseeMurmur.Sum32(input[n])
 	}
+	result = output
 }
 func BenchmarkZhangMurmur(b *testing.B) {
 	input := mkinput(b.N)
@@ -60,6 +66,7 @@ func BenchmarkZhangMurmur(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		output[n] = zhangMurmur.Murmur3(input[n])
 	}
+	result = output
 }
 func BenchmarkDgryskiSpooky32(b *testing.B) {
 	input := mkinput(b.N)
@@ -68,6 +75,7 @@ func BenchmarkDgryskiSpooky32(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		output[n] = dgryskiSpooky.Hash32(input[n])
 	}
+	result = output
 }
 func BenchmarkDgryskiSpooky64(b *testing.B) {
 	input := mkinput(b.N)
@@ -76,6 +84,7 @@ func BenchmarkDgryskiSpooky64(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		output[n] = dgryskiSpooky.Hash64(input[n])
 	}
+	result = output
 }
 func BenchmarkHashlandSpooky32(b *testing.B) {
 	input := mkinput(b.N)
@@ -84,6 +93,7 @@ func BenchmarkHashlandSpooky32(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		output[n] = hashlandSpooky.Hash32(input[n], 0)
 	}
+	result = output
 }
 func BenchmarkHashlandSpooky64(b *testing.B) {
 	input := mkinput(b.N)
@@ -92,6 +102,7 @@ func BenchmarkHashlandSpooky64(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		output[n] = hashlandSpooky.Hash64(input[n], 0)
 	}
+	result = output
 }
 func BenchmarkJPathyCity32(b *testing.B) {
 	input := mkinput(b.N)
@@ -100,6 +111,7 @@ func BenchmarkJPathyCity32(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		output[n] = jpathyCity.Hash32(input[n])
 	}
+	result = output
 }
 func BenchmarkCreachadairCity32(b *testing.B) {
 	input := mkinput(b.N)
@@ -108,6 +120,7 @@ func BenchmarkCreachadairCity32(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		output[n] = creachadairCity.Hash32(input[n])
 	}
+	result = output
 }
 func BenchmarkCreachadairCity64(b *testing.B) {
 	input := mkinput(b.N)
@@ -116,4 +129,5 @@ func BenchmarkCreachadairCity64(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		output[n] = creachadairCity.Hash64(input[n])
 	}
+	result = output
 }
