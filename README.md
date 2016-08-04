@@ -62,7 +62,7 @@ BenchmarkCreachadairCity32	30000000	        60.2 ns/op
 BenchmarkCreachadairCity64	50000000	        29.0 ns/op
 ```
 
-2011 Intel i7-3930K (its an older model but it checks out)
+Intel(R) Core(TM) i7-3930K CPU @ 3.20GHz (its an older model but it checks out)
 
 ```
 BenchmarkFarmHashHash32   	30000000	        50.5 ns/op
