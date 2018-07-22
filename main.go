@@ -12,6 +12,7 @@ import (
 	_ "github.com/reusee/mmh3"
 	_ "github.com/tildeleb/hashland/spooky"
 	_ "github.com/zhangxinngang/murmur"
+	_ "github.com/dgryski/go-stadtx"
 )
 
 func main() {
